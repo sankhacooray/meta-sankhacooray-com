@@ -88,12 +88,6 @@ h1 em{font-style:italic; color:var(--accent)}
 .thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top}
 .thumb-fallback{display:none; font-family:'Instrument Serif',serif; font-size:64px; color:color-mix(in srgb,var(--accent) 70%, #fff); opacity:.9}
 .thumb--fallback .thumb-fallback{display:block}
-.tag{
-  position:absolute; top:12px; left:12px; z-index:2; font-family:'JetBrains Mono',monospace;
-  font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#0a0b10; font-weight:500;
-  background:color-mix(in srgb,var(--accent) 82%, #fff); padding:4px 9px; border-radius:6px;
-  box-shadow:0 2px 8px rgba(0,0,0,.35);
-}
 .body{padding:16px 17px 18px; display:flex; flex-direction:column; gap:7px; flex:1}
 .domain{display:flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.5px; color:var(--text-muted)}
 .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; box-shadow:0 0 8px var(--accent)}
@@ -129,10 +123,9 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
          data-search="sankhacooray.com sankha cooray — developer &amp; innovator software engineer working at the seam of the physical and digital: ar/mr, games, and applied r&amp;d. home"
          style="--accent:#0b0d12">
         <div class="thumb">
-          <img src="https://v3.sankhacooray.com/images/profile.jpg" alt="Share preview of Sankha Cooray — Developer &amp; Innovator" loading="lazy" decoding="async"
+          <img src="https://v3.sankhacooray.com/assets/og-image.png" alt="Share preview of Sankha Cooray — Developer &amp; Innovator" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">SC</span>
-          <span class="tag">home</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>sankhacooray.com</span>
@@ -147,7 +140,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://whoami.sankhacooray.com/og.png" alt="Share preview of whoami · Sankha Cooray" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">WH</span>
-          <span class="tag">identity</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>whoami.sankhacooray.com</span>
@@ -162,7 +154,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://v2.sankhacooray.com/assets/og-image.png" alt="Share preview of Sankha Cooray — Developer &amp; Innovator" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">V2</span>
-          <span class="tag">portfolio</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>v2.sankhacooray.com</span>
@@ -177,7 +168,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://v1.sankhacooray.com/assets/og-image.png" alt="Share preview of Bulathsinhalage Sankha Cooray" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">V1</span>
-          <span class="tag">portfolio</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>v1.sankhacooray.com</span>
@@ -192,7 +182,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://dev.sankhacooray.com/assets/og-image.png" alt="Share preview of dev — Sankha Cooray · a small private lab" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">DE</span>
-          <span class="tag">lab</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>dev.sankhacooray.com</span>
@@ -207,7 +196,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://vitals.sankhacooray.com/assets/og-image.png" alt="Share preview of vitals — Sankha Cooray · nutrition, fasting &amp; metabolism" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">VI</span>
-          <span class="tag">lab</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>vitals.sankhacooray.com</span>
@@ -222,7 +210,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://biolens.sankhacooray.com/assets/og-image.png" alt="Share preview of biolens — Sankha Cooray · bio &amp; medical work" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">BI</span>
-          <span class="tag">research</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>biolens.sankhacooray.com</span>
@@ -237,7 +224,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://ensemble.sankhacooray.com/og-image.png" alt="Share preview of ensemble — Sankha Cooray · a music journey" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">EN</span>
-          <span class="tag">music</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>ensemble.sankhacooray.com</span>
@@ -252,7 +238,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://conduct.sankhacooray.com/assets/og-image.png" alt="Share preview of Embodied Orchestra" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">CO</span>
-          <span class="tag">music</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>conduct.sankhacooray.com</span>
@@ -267,7 +252,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://fold.sankhacooray.com/assets/og-image.png" alt="Share preview of fold — Sankha Cooray · paper engineering &amp; craft" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">FO</span>
-          <span class="tag">craft</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>fold.sankhacooray.com</span>
@@ -282,7 +266,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://palette.sankhacooray.com/assets/og-image.png" alt="Share preview of palette — Sankha Cooray · interface design" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">PA</span>
-          <span class="tag">design</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>palette.sankhacooray.com</span>
@@ -297,7 +280,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://date.sankhacooray.com/assets/og-image.png" alt="Share preview of date — a dating site with exactly one person on it" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">DA</span>
-          <span class="tag">playful</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>date.sankhacooray.com</span>
@@ -312,7 +294,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://coffeelab.sankhacooray.com/og-image.png" alt="Share preview of Coffee Lab" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">CO</span>
-          <span class="tag">tool</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>coffeelab.sankhacooray.com</span>
@@ -327,7 +308,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://mixlab.sankhacooray.com/og-image.png" alt="Share preview of MixLab — Drink Innovation System" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">MI</span>
-          <span class="tag">tool</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>mixlab.sankhacooray.com</span>
@@ -342,7 +322,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://pixels.sankhacooray.com/assets/og-image.png" alt="Share preview of Pixels · sankhacooray" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">PI</span>
-          <span class="tag">tool</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>pixels.sankhacooray.com</span>
@@ -357,7 +336,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://paynow.sankhacooray.com/assets/og-image.png" alt="Share preview of SG Payment Deep Link Test" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">PA</span>
-          <span class="tag">tool</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>paynow.sankhacooray.com</span>
@@ -372,7 +350,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://travel.sankhacooray.com/og-image.png" alt="Share preview of Travels — Sankha Cooray" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">TR</span>
-          <span class="tag">map</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>travel.sankhacooray.com</span>
@@ -387,7 +364,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://cdn.sankhacooray.com/assets/og-image.png" alt="Share preview of cdn.sankhacooray.com" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">CD</span>
-          <span class="tag">infra</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>cdn.sankhacooray.com</span>
@@ -402,7 +378,6 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
           <img src="https://auth.sankhacooray.com/assets/og-image.png" alt="Share preview of auth · sankhacooray" loading="lazy" decoding="async"
                onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
           <span class="thumb-fallback" aria-hidden="true">AU</span>
-          <span class="tag">infra</span>
         </div>
         <div class="body">
           <span class="domain"><span class="dot"></span>auth.sankhacooray.com</span>
