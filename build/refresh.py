@@ -5,13 +5,14 @@
 
 Fetches each domain below, parses its live og:title / og:description / og:image /
 theme-color (quote-aware, entity-decoded — exactly what WhatsApp/Slack would read),
-and bakes a pre-rendered card grid into ../index.html. Works without JS; the page's
-inline script only adds the search filter. Thumbnails hot-link each site's live og:image.
+and bakes a pre-rendered card grid into ../index.html. Fully static (no JS). Thumbnails
+hot-link each site's live og:image with a ?v= cache-bust so the grid shows the latest.
 
-To add / reorder / re-tag a site, edit ORDER. `tag` is not shown as a chip (removed by
-request) but is still folded into each card's data-search string so search-by-category works.
+To add / reorder a site, edit ORDER. `tag` is kept in each card's data-search attribute
+(handy metadata) but is no longer rendered as a visible chip.
 """
 import subprocess, re, json, html, os
+from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT  = os.path.join(HERE, "..", "index.html")
@@ -65,8 +66,10 @@ def scrape(d):
 
 def esc(s): return html.escape(s or "", quote=True)
 
-def card(dom, tag, r):
+def card(dom, tag, r, ver):
     title, desc, img, theme = esc(r["title"]), esc(r["description"]), esc(r["image"]), r["theme"]
+    if img:
+        img += ("&" if "?" in img else "?") + "v=" + ver  # cache-bust so the grid shows the latest share image
     label = "sankhacooray.com" if dom == "sankhacooray.com" else dom.replace(".sankhacooray.com", "")
     mono = "SC" if dom == "sankhacooray.com" else esc(label[:2].upper())
     featured = " card--featured" if dom == "sankhacooray.com" else ""
@@ -86,8 +89,9 @@ def card(dom, tag, r):
       </a>'''
 
 def main():
+    VERSION = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
     rows = {d: scrape(d) for d, _ in ORDER}
-    cards = "\n".join(card(d, tag, rows[d]) for d, tag in ORDER)
+    cards = "\n".join(card(d, tag, rows[d], VERSION) for d, tag in ORDER)
     tpl = open(os.path.join(HERE, "template.html"), encoding="utf-8").read()
     out = tpl.replace("<!--CARDS-->", cards).replace("{{COUNT}}", str(len(ORDER)))
     open(OUT, "w", encoding="utf-8").write(out)

@@ -68,7 +68,7 @@ h1 em{font-style:italic; color:var(--accent)}
 
 .grid{
   display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:22px;
-  padding:8px 0 90px;
+  padding:64px 0 90px;
 }
 .card{
   display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--border-soft);
@@ -105,43 +105,14 @@ footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(-
 </head>
 <body>
 <div class="wrap">
-  <header class="top">
-    <div class="eyebrow">the sankhacooray network</div>
-    <h1>meta — the network,<br>as it <em>shares</em>.</h1>
-    <p class="lede">Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.</p>
-    <div class="toolbar">
-      <label class="search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        <input id="q" type="search" placeholder="Filter sites…" autocomplete="off" spellcheck="false">
-      </label>
-      <span class="count"><b id="shown">{{COUNT}}</b> / {{COUNT}} sites</span>
-    </div>
-  </header>
-
   <main class="grid" id="grid">
 <!--CARDS-->
   </main>
-  <p class="empty" id="empty">no sites match that filter.</p>
 
   <footer>
     <span class="mono">Open Graph data pulled live from each sub-site.</span>
     <span class="mono">↩ <a href="https://sankhacooray.com/">sankhacooray.com</a></span>
   </footer>
 </div>
-
-<script>
-(function(){
-  var q=document.getElementById('q'), cards=[].slice.call(document.querySelectorAll('.card')),
-      shown=document.getElementById('shown'), empty=document.getElementById('empty');
-  q.addEventListener('input', function(){
-    var t=q.value.trim().toLowerCase(), n=0;
-    cards.forEach(function(c){
-      var hit = !t || c.getAttribute('data-search').indexOf(t)>-1;
-      c.style.display = hit ? '' : 'none'; if(hit) n++;
-    });
-    shown.textContent=n; empty.style.display = n ? 'none' : 'block';
-  });
-})();
-</script>
 </body>
 </html>
