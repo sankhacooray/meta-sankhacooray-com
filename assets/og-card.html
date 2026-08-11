@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0b10;
+    color: #eef0f6;
+    background-image:
+      radial-gradient(900px 480px at 14% -10%, rgba(141,180,255,0.16), transparent 60%),
+      radial-gradient(820px 560px at 106% 14%, rgba(195,155,255,0.12), transparent 60%);
+    padding: 72px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 500;
+    color: #8db4ff; text-transform: uppercase; letter-spacing: 4px;
+  }
+  h1 {
+    font-family: 'Instrument Serif', serif; font-weight: 400;
+    font-size: 98px; line-height: 1.0; letter-spacing: -2px; margin-top: 26px;
+  }
+  h1 em { color: #8db4ff; font-style: italic; }
+  .lede {
+    font-size: 25px; color: #a6adbd; max-width: 660px; margin-top: 28px; line-height: 1.45;
+  }
+  .foot { display: flex; align-items: baseline; gap: 18px; }
+  .mark { font-family: 'Instrument Serif', serif; font-size: 40px; color: #8db4ff; letter-spacing: -0.5px; }
+  .by { font-family: 'JetBrains Mono', monospace; font-size: 17px; color: #6b7182; letter-spacing: 1px; }
+  .url { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 17px; color: #a6adbd; letter-spacing: 1px; }
+  .grid { position: absolute; right: 74px; top: 96px; display: grid; grid-template-columns: repeat(3, 66px); gap: 14px; }
+  .grid span { width: 66px; height: 42px; border-radius: 9px; border: 3px solid rgba(141,180,255,0.55); }
+  .grid span.on { background: #8db4ff; border-color: #8db4ff; }
+  .grid span.alt { border-color: rgba(195,155,255,0.7); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <span class="on"></span><span></span><span class="alt"></span>
+    <span></span><span class="on"></span><span></span>
+    <span class="alt"></span><span></span><span class="on"></span>
+  </div>
+
+  <div>
+    <div class="eyebrow">the sankhacooray network</div>
+    <h1>The network,<br>as it <em>shares</em>.</h1>
+    <div class="lede">Every sub-site — and exactly how it looks when you paste the link into a chat. Live Open Graph previews, in one grid.</div>
+  </div>
+
+  <div class="foot">
+    <span class="mark">meta</span>
+    <span class="by">Sankha Cooray</span>
+    <span class="url">meta.sankhacooray.com</span>
+  </div>
+</body>
+</html>

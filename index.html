@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>meta — Sankha Cooray · the network, as it shares</title>
+<meta name="description" content="Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.">
+<link rel="canonical" href="https://meta.sankhacooray.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="meta">
+<meta property="og:title" content="meta — Sankha Cooray · the network, as it shares">
+<meta property="og:description" content="Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.">
+<meta property="og:url" content="https://meta.sankhacooray.com/">
+<meta property="og:image" content="https://meta.sankhacooray.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="meta — a gallery of every sankhacooray.com sub-site's share preview">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="meta — Sankha Cooray · the network, as it shares">
+<meta name="twitter:description" content="Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.">
+<meta name="twitter:image" content="https://meta.sankhacooray.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="meta — a gallery of every sankhacooray.com sub-site's share preview">
+
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0a0b10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="meta">
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b10; --surface:#12141b; --surface2:#171a22; --border:#242833; --border-soft:#1c1f27;
+  --text:#eef0f6; --text-dim:#a6adbd; --text-muted:#6b7182;
+  --accent:#8db4ff; --accent2:#c39bff; --accent-soft:rgba(141,180,255,0.08);
+  --radius:16px; --radius-sm:10px; --maxw:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,sans-serif; background:var(--bg); color:var(--text);
+  -webkit-font-smoothing:antialiased; line-height:1.5; min-height:100vh;
+  background-image:
+    radial-gradient(1200px 620px at 12% -10%, rgba(141,180,255,0.10), transparent 60%),
+    radial-gradient(1000px 680px at 108% 6%, rgba(195,155,255,0.08), transparent 60%);
+  background-attachment:fixed;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+header.top{padding:72px 0 34px}
+.eyebrow{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-weight:500}
+h1{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(48px,8vw,92px); line-height:1.0; letter-spacing:-1.5px; margin:14px 0 0}
+h1 em{font-style:italic; color:var(--accent)}
+.lede{font-size:clamp(16px,2.2vw,20px); color:var(--text-dim); max-width:660px; margin-top:20px}
+.toolbar{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:30px}
+.search{
+  flex:1; min-width:220px; max-width:420px; display:flex; align-items:center; gap:10px;
+  background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:11px 18px;
+}
+.search input{flex:1; background:none; border:none; outline:none; color:var(--text); font-family:inherit; font-size:15px}
+.search svg{flex:none; color:var(--text-muted)}
+.count{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--text-muted); letter-spacing:1px}
+.count b{color:var(--accent)}
+
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:22px;
+  padding:8px 0 90px;
+}
+.card{
+  display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--border-soft);
+  border-radius:var(--radius); overflow:hidden; text-decoration:none; color:inherit;
+  transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.card:hover{border-color:color-mix(in srgb, var(--accent) 55%, var(--border)); background:var(--surface2);
+  box-shadow:0 14px 40px -22px rgba(0,0,0,0.9), 0 0 0 1px color-mix(in srgb,var(--accent) 20%, transparent)}
+.card--featured{grid-column:1 / -1}
+@media(min-width:760px){ .card--featured{grid-column:span 2} }
+.thumb{
+  position:relative; aspect-ratio:1200/630; background:
+    linear-gradient(135deg, color-mix(in srgb,var(--accent) 22%, var(--surface)), var(--surface));
+  overflow:hidden; display:flex; align-items:center; justify-content:center;
+}
+.card--featured .thumb{aspect-ratio:2.6/1}
+.thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top}
+.thumb-fallback{display:none; font-family:'Instrument Serif',serif; font-size:64px; color:color-mix(in srgb,var(--accent) 70%, #fff); opacity:.9}
+.thumb--fallback .thumb-fallback{display:block}
+.tag{
+  position:absolute; top:12px; left:12px; z-index:2; font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#0a0b10; font-weight:500;
+  background:color-mix(in srgb,var(--accent) 82%, #fff); padding:4px 9px; border-radius:6px;
+  box-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+.body{padding:16px 17px 18px; display:flex; flex-direction:column; gap:7px; flex:1}
+.domain{display:flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.5px; color:var(--text-muted)}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; box-shadow:0 0 8px var(--accent)}
+.title{font-family:'DM Sans',sans-serif; font-weight:600; font-size:17px; line-height:1.28; color:var(--text);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.card--featured .title{font-size:22px}
+.desc{font-size:14px; color:var(--text-dim); line-height:1.5;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.empty{display:none; text-align:center; color:var(--text-muted); padding:60px 0; font-family:'JetBrains Mono',monospace}
+footer{border-top:1px solid var(--border-soft); padding:30px 0 60px; color:var(--text-muted); font-size:14px;
+  display:flex; gap:16px; justify-content:space-between; flex-wrap:wrap}
+footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(--accent)}
+.mono{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">the sankhacooray network</div>
+    <h1>meta — the network,<br>as it <em>shares</em>.</h1>
+    <p class="lede">Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.</p>
+    <div class="toolbar">
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="q" type="search" placeholder="Filter sites…" autocomplete="off" spellcheck="false">
+      </label>
+      <span class="count"><b id="shown">19</b> / 19 sites</span>
+    </div>
+  </header>
+
+  <main class="grid" id="grid">
+      <a class="card card--featured" href="https://sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="sankhacooray.com sankha cooray — developer &amp; innovator software engineer working at the seam of the physical and digital: ar/mr, games, and applied r&amp;d. home"
+         style="--accent:#0b0d12">
+        <div class="thumb">
+          <img src="https://v3.sankhacooray.com/images/profile.jpg" alt="Share preview of Sankha Cooray — Developer &amp; Innovator" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">SC</span>
+          <span class="tag">home</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>sankhacooray.com</span>
+          <h2 class="title">Sankha Cooray — Developer &amp; Innovator</h2>
+          <p class="desc">Software engineer working at the seam of the physical and digital: AR/MR, games, and applied R&amp;D.</p>
+        </div>
+      </a>
+      <a class="card" href="https://whoami.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="whoami whoami · sankha cooray one person, many perspectives — software engineer, xr innovator, maker, creative technologist. identity"
+         style="--accent:#0c0d10">
+        <div class="thumb">
+          <img src="https://whoami.sankhacooray.com/og.png" alt="Share preview of whoami · Sankha Cooray" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">WH</span>
+          <span class="tag">identity</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>whoami.sankhacooray.com</span>
+          <h2 class="title">whoami · Sankha Cooray</h2>
+          <p class="desc">One person, many perspectives — software engineer, XR innovator, maker, creative technologist.</p>
+        </div>
+      </a>
+      <a class="card" href="https://v2.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="v2 sankha cooray — developer &amp; innovator the portfolio of sankha cooray — a software engineer working across mixed reality, games and research. portfolio"
+         style="--accent:#0b0d12">
+        <div class="thumb">
+          <img src="https://v2.sankhacooray.com/assets/og-image.png" alt="Share preview of Sankha Cooray — Developer &amp; Innovator" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">V2</span>
+          <span class="tag">portfolio</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>v2.sankhacooray.com</span>
+          <h2 class="title">Sankha Cooray — Developer &amp; Innovator</h2>
+          <p class="desc">The portfolio of Sankha Cooray — a software engineer working across mixed reality, games and research.</p>
+        </div>
+      </a>
+      <a class="card" href="https://v1.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="v1 bulathsinhalage sankha cooray the original portfolio of sankha cooray — software engineer, innovator, game developer, and r&amp;d. portfolio"
+         style="--accent:#0e1014">
+        <div class="thumb">
+          <img src="https://v1.sankhacooray.com/assets/og-image.png" alt="Share preview of Bulathsinhalage Sankha Cooray" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">V1</span>
+          <span class="tag">portfolio</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>v1.sankhacooray.com</span>
+          <h2 class="title">Bulathsinhalage Sankha Cooray</h2>
+          <p class="desc">The original portfolio of Sankha Cooray — software engineer, innovator, game developer, and R&amp;D.</p>
+        </div>
+      </a>
+      <a class="card" href="https://dev.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="dev dev — sankha cooray · a small private lab live view of what sankha is making — a year of small daily experiments, with a 360° cosmos of every repo you can fly through. lab"
+         style="--accent:#0d0c0a">
+        <div class="thumb">
+          <img src="https://dev.sankhacooray.com/assets/og-image.png" alt="Share preview of dev — Sankha Cooray · a small private lab" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">DE</span>
+          <span class="tag">lab</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>dev.sankhacooray.com</span>
+          <h2 class="title">dev — Sankha Cooray · a small private lab</h2>
+          <p class="desc">Live view of what Sankha is making — a year of small daily experiments, with a 360° cosmos of every repo you can fly through.</p>
+        </div>
+      </a>
+      <a class="card" href="https://vitals.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="vitals vitals — sankha cooray · nutrition, fasting &amp; metabolism personal field notes on intermittent fasting, autophagy, lean-mass hyper-responder profile, and self-tracked metabolic experiments. lab"
+         style="--accent:#0e120a">
+        <div class="thumb">
+          <img src="https://vitals.sankhacooray.com/assets/og-image.png" alt="Share preview of vitals — Sankha Cooray · nutrition, fasting &amp; metabolism" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">VI</span>
+          <span class="tag">lab</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>vitals.sankhacooray.com</span>
+          <h2 class="title">vitals — Sankha Cooray · nutrition, fasting &amp; metabolism</h2>
+          <p class="desc">Personal field notes on intermittent fasting, autophagy, lean-mass hyper-responder profile, and self-tracked metabolic experiments.</p>
+        </div>
+      </a>
+      <a class="card" href="https://biolens.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="biolens biolens — sankha cooray · bio &amp; medical work a research lens on biology and medicine — exposure and side projects in bio-engineering, medical tools, and biosensing. research"
+         style="--accent:#08110f">
+        <div class="thumb">
+          <img src="https://biolens.sankhacooray.com/assets/og-image.png" alt="Share preview of biolens — Sankha Cooray · bio &amp; medical work" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">BI</span>
+          <span class="tag">research</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>biolens.sankhacooray.com</span>
+          <h2 class="title">biolens — Sankha Cooray · bio &amp; medical work</h2>
+          <p class="desc">A research lens on biology and medicine — exposure and side projects in bio-engineering, medical tools, and biosensing.</p>
+        </div>
+      </a>
+      <a class="card" href="https://ensemble.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="ensemble ensemble — sankha cooray · a music journey keyboardist, arranger, faculty-orchestra lead — now exploring hci research toward music. music"
+         style="--accent:#0b0a0d">
+        <div class="thumb">
+          <img src="https://ensemble.sankhacooray.com/og-image.png" alt="Share preview of ensemble — Sankha Cooray · a music journey" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">EN</span>
+          <span class="tag">music</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>ensemble.sankhacooray.com</span>
+          <h2 class="title">ensemble — Sankha Cooray · a music journey</h2>
+          <p class="desc">Keyboardist, arranger, faculty-orchestra lead — now exploring HCI research toward music.</p>
+        </div>
+      </a>
+      <a class="card" href="https://conduct.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="conduct embodied orchestra move your body. become the instrument. a motion-driven music experiment for your phone — conductor, theremin and bow modes. music"
+         style="--accent:#0a0a0f">
+        <div class="thumb">
+          <img src="https://conduct.sankhacooray.com/assets/og-image.png" alt="Share preview of Embodied Orchestra" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">CO</span>
+          <span class="tag">music</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>conduct.sankhacooray.com</span>
+          <h2 class="title">Embodied Orchestra</h2>
+          <p class="desc">Move your body. Become the instrument. A motion-driven music experiment for your phone — Conductor, Theremin and Bow modes.</p>
+        </div>
+      </a>
+      <a class="card" href="https://fold.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="fold fold — sankha cooray · paper engineering &amp; craft paper engineering and craft work — stakco and other folded, cut, and assembled experiments. craft"
+         style="--accent:#0e0b08">
+        <div class="thumb">
+          <img src="https://fold.sankhacooray.com/assets/og-image.png" alt="Share preview of fold — Sankha Cooray · paper engineering &amp; craft" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">FO</span>
+          <span class="tag">craft</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>fold.sankhacooray.com</span>
+          <h2 class="title">fold — Sankha Cooray · paper engineering &amp; craft</h2>
+          <p class="desc">Paper engineering and craft work — Stakco and other folded, cut, and assembled experiments.</p>
+        </div>
+      </a>
+      <a class="card" href="https://palette.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="palette palette — sankha cooray · interface design ui and interaction design work — small web apps, design systems, and the visual vocabulary behind a network of side projects. design"
+         style="--accent:#0d0a14">
+        <div class="thumb">
+          <img src="https://palette.sankhacooray.com/assets/og-image.png" alt="Share preview of palette — Sankha Cooray · interface design" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">PA</span>
+          <span class="tag">design</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>palette.sankhacooray.com</span>
+          <h2 class="title">palette — Sankha Cooray · interface design</h2>
+          <p class="desc">UI and interaction design work — small web apps, design systems, and the visual vocabulary behind a network of side projects.</p>
+        </div>
+      </a>
+      <a class="card" href="https://date.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="date date — a dating site with exactly one person on it one person. no swiping. get to know him, check compatibility, and chat with the agent who knows him a little too well. playful"
+         style="--accent:#160910">
+        <div class="thumb">
+          <img src="https://date.sankhacooray.com/assets/og-image.png" alt="Share preview of date — a dating site with exactly one person on it" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">DA</span>
+          <span class="tag">playful</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>date.sankhacooray.com</span>
+          <h2 class="title">date — a dating site with exactly one person on it</h2>
+          <p class="desc">One person. No swiping. Get to know him, check compatibility, and chat with the agent who knows him a little too well.</p>
+        </div>
+      </a>
+      <a class="card" href="https://coffeelab.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="coffeelab coffee lab build a coffee drink ingredient by ingredient and see which famous coffee you just made. tool"
+         style="--accent:#3a1f10">
+        <div class="thumb">
+          <img src="https://coffeelab.sankhacooray.com/og-image.png" alt="Share preview of Coffee Lab" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">CO</span>
+          <span class="tag">tool</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>coffeelab.sankhacooray.com</span>
+          <h2 class="title">Coffee Lab</h2>
+          <p class="desc">Build a coffee drink ingredient by ingredient and see which famous coffee you just made.</p>
+        </div>
+      </a>
+      <a class="card" href="https://mixlab.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="mixlab mixlab — drink innovation system explore drink ingredient combinations and instantly see their nutrition, active compounds, and safety flags. tool"
+         style="--accent:#0a0a0c">
+        <div class="thumb">
+          <img src="https://mixlab.sankhacooray.com/og-image.png" alt="Share preview of MixLab — Drink Innovation System" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">MI</span>
+          <span class="tag">tool</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>mixlab.sankhacooray.com</span>
+          <h2 class="title">MixLab — Drink Innovation System</h2>
+          <p class="desc">Explore drink ingredient combinations and instantly see their nutrition, active compounds, and safety flags.</p>
+        </div>
+      </a>
+      <a class="card" href="https://pixels.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="pixels pixels · sankhacooray a clean, fast lens on free stock imagery — search and preview high-quality photos. tool"
+         style="--accent:#0e1116">
+        <div class="thumb">
+          <img src="https://pixels.sankhacooray.com/assets/og-image.png" alt="Share preview of Pixels · sankhacooray" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">PI</span>
+          <span class="tag">tool</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>pixels.sankhacooray.com</span>
+          <h2 class="title">Pixels · sankhacooray</h2>
+          <p class="desc">A clean, fast lens on free stock imagery — search and preview high-quality photos.</p>
+        </div>
+      </a>
+      <a class="card" href="https://paynow.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="paynow sg payment deep link test tap-test deep links into paylah, ocbc, uob, grabpay, dash, shopeepay with a prefilled amount. tool"
+         style="--accent:#ed2939">
+        <div class="thumb">
+          <img src="https://paynow.sankhacooray.com/assets/og-image.png" alt="Share preview of SG Payment Deep Link Test" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">PA</span>
+          <span class="tag">tool</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>paynow.sankhacooray.com</span>
+          <h2 class="title">SG Payment Deep Link Test</h2>
+          <p class="desc">Tap-test deep links into PayLah, OCBC, UOB, GrabPay, Dash, ShopeePay with a prefilled amount.</p>
+        </div>
+      </a>
+      <a class="card" href="https://travel.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="travel travels — sankha cooray an interactive map of the countries i&#x27;ve visited, shaded by how often. map"
+         style="--accent:#0b0d12">
+        <div class="thumb">
+          <img src="https://travel.sankhacooray.com/og-image.png" alt="Share preview of Travels — Sankha Cooray" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">TR</span>
+          <span class="tag">map</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>travel.sankhacooray.com</span>
+          <h2 class="title">Travels — Sankha Cooray</h2>
+          <p class="desc">An interactive map of the countries I&#x27;ve visited, shaded by how often.</p>
+        </div>
+      </a>
+      <a class="card" href="https://cdn.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="cdn cdn.sankhacooray.com shared front-end components for the sankhacooray network — the auto-theming footer, analytics loader, and other drop-in modules. infra"
+         style="--accent:#0a0a12">
+        <div class="thumb">
+          <img src="https://cdn.sankhacooray.com/assets/og-image.png" alt="Share preview of cdn.sankhacooray.com" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">CD</span>
+          <span class="tag">infra</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>cdn.sankhacooray.com</span>
+          <h2 class="title">cdn.sankhacooray.com</h2>
+          <p class="desc">Shared front-end components for the sankhacooray network — the auto-theming footer, analytics loader, and other drop-in modules.</p>
+        </div>
+      </a>
+      <a class="card" href="https://auth.sankhacooray.com/" target="_blank" rel="noopener"
+         data-search="auth auth · sankhacooray the single sign-in gate for the sankhacooray network — one google login across every sub-site. infra"
+         style="--accent:#0b0e13">
+        <div class="thumb">
+          <img src="https://auth.sankhacooray.com/assets/og-image.png" alt="Share preview of auth · sankhacooray" loading="lazy" decoding="async"
+               onerror="this.closest('.thumb').classList.add('thumb--fallback');this.remove();">
+          <span class="thumb-fallback" aria-hidden="true">AU</span>
+          <span class="tag">infra</span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span>auth.sankhacooray.com</span>
+          <h2 class="title">auth · sankhacooray</h2>
+          <p class="desc">The single sign-in gate for the sankhacooray network — one Google login across every sub-site.</p>
+        </div>
+      </a>
+  </main>
+  <p class="empty" id="empty">no sites match that filter.</p>
+
+  <footer>
+    <span class="mono">Open Graph data pulled live from each sub-site.</span>
+    <span class="mono">↩ <a href="https://sankhacooray.com/">sankhacooray.com</a></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var q=document.getElementById('q'), cards=[].slice.call(document.querySelectorAll('.card')),
+      shown=document.getElementById('shown'), empty=document.getElementById('empty');
+  q.addEventListener('input', function(){
+    var t=q.value.trim().toLowerCase(), n=0;
+    cards.forEach(function(c){
+      var hit = !t || c.getAttribute('data-search').indexOf(t)>-1;
+      c.style.display = hit ? '' : 'none'; if(hit) n++;
+    });
+    shown.textContent=n; empty.style.display = n ? 'none' : 'block';
+  });
+})();
+</script>
+</body>
+</html>
