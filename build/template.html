@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>meta — Sankha Cooray · the network, as it shares</title>
+<meta name="description" content="Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.">
+<link rel="canonical" href="https://meta.sankhacooray.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="meta">
+<meta property="og:title" content="meta — Sankha Cooray · the network, as it shares">
+<meta property="og:description" content="Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.">
+<meta property="og:url" content="https://meta.sankhacooray.com/">
+<meta property="og:image" content="https://meta.sankhacooray.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="meta — a gallery of every sankhacooray.com sub-site's share preview">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="meta — Sankha Cooray · the network, as it shares">
+<meta name="twitter:description" content="Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.">
+<meta name="twitter:image" content="https://meta.sankhacooray.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="meta — a gallery of every sankhacooray.com sub-site's share preview">
+
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0a0b10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="meta">
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b10; --surface:#12141b; --surface2:#171a22; --border:#242833; --border-soft:#1c1f27;
+  --text:#eef0f6; --text-dim:#a6adbd; --text-muted:#6b7182;
+  --accent:#8db4ff; --accent2:#c39bff; --accent-soft:rgba(141,180,255,0.08);
+  --radius:16px; --radius-sm:10px; --maxw:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,sans-serif; background:var(--bg); color:var(--text);
+  -webkit-font-smoothing:antialiased; line-height:1.5; min-height:100vh;
+  background-image:
+    radial-gradient(1200px 620px at 12% -10%, rgba(141,180,255,0.10), transparent 60%),
+    radial-gradient(1000px 680px at 108% 6%, rgba(195,155,255,0.08), transparent 60%);
+  background-attachment:fixed;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+header.top{padding:72px 0 34px}
+.eyebrow{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-weight:500}
+h1{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(48px,8vw,92px); line-height:1.0; letter-spacing:-1.5px; margin:14px 0 0}
+h1 em{font-style:italic; color:var(--accent)}
+.lede{font-size:clamp(16px,2.2vw,20px); color:var(--text-dim); max-width:660px; margin-top:20px}
+.toolbar{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:30px}
+.search{
+  flex:1; min-width:220px; max-width:420px; display:flex; align-items:center; gap:10px;
+  background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:11px 18px;
+}
+.search input{flex:1; background:none; border:none; outline:none; color:var(--text); font-family:inherit; font-size:15px}
+.search svg{flex:none; color:var(--text-muted)}
+.count{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--text-muted); letter-spacing:1px}
+.count b{color:var(--accent)}
+
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:22px;
+  padding:8px 0 90px;
+}
+.card{
+  display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--border-soft);
+  border-radius:var(--radius); overflow:hidden; text-decoration:none; color:inherit;
+  transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.card:hover{border-color:color-mix(in srgb, var(--accent) 55%, var(--border)); background:var(--surface2);
+  box-shadow:0 14px 40px -22px rgba(0,0,0,0.9), 0 0 0 1px color-mix(in srgb,var(--accent) 20%, transparent)}
+.card--featured{grid-column:1 / -1}
+@media(min-width:760px){ .card--featured{grid-column:span 2} }
+.thumb{
+  position:relative; aspect-ratio:1200/630; background:
+    linear-gradient(135deg, color-mix(in srgb,var(--accent) 22%, var(--surface)), var(--surface));
+  overflow:hidden; display:flex; align-items:center; justify-content:center;
+}
+.card--featured .thumb{aspect-ratio:2.6/1}
+.thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top}
+.thumb-fallback{display:none; font-family:'Instrument Serif',serif; font-size:64px; color:color-mix(in srgb,var(--accent) 70%, #fff); opacity:.9}
+.thumb--fallback .thumb-fallback{display:block}
+.body{padding:16px 17px 18px; display:flex; flex-direction:column; gap:7px; flex:1}
+.domain{display:flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.5px; color:var(--text-muted)}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; box-shadow:0 0 8px var(--accent)}
+.title{font-family:'DM Sans',sans-serif; font-weight:600; font-size:17px; line-height:1.28; color:var(--text);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.card--featured .title{font-size:22px}
+.desc{font-size:14px; color:var(--text-dim); line-height:1.5;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.empty{display:none; text-align:center; color:var(--text-muted); padding:60px 0; font-family:'JetBrains Mono',monospace}
+footer{border-top:1px solid var(--border-soft); padding:30px 0 60px; color:var(--text-muted); font-size:14px;
+  display:flex; gap:16px; justify-content:space-between; flex-wrap:wrap}
+footer a{color:var(--text-dim); text-decoration:none} footer a:hover{color:var(--accent)}
+.mono{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">the sankhacooray network</div>
+    <h1>meta — the network,<br>as it <em>shares</em>.</h1>
+    <p class="lede">Every sankhacooray.com sub-site — and exactly how each one looks when you paste the link into WhatsApp, iMessage or Slack. Live Open Graph titles, descriptions and share images, in one grid.</p>
+    <div class="toolbar">
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="q" type="search" placeholder="Filter sites…" autocomplete="off" spellcheck="false">
+      </label>
+      <span class="count"><b id="shown">{{COUNT}}</b> / {{COUNT}} sites</span>
+    </div>
+  </header>
+
+  <main class="grid" id="grid">
+<!--CARDS-->
+  </main>
+  <p class="empty" id="empty">no sites match that filter.</p>
+
+  <footer>
+    <span class="mono">Open Graph data pulled live from each sub-site.</span>
+    <span class="mono">↩ <a href="https://sankhacooray.com/">sankhacooray.com</a></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var q=document.getElementById('q'), cards=[].slice.call(document.querySelectorAll('.card')),
+      shown=document.getElementById('shown'), empty=document.getElementById('empty');
+  q.addEventListener('input', function(){
+    var t=q.value.trim().toLowerCase(), n=0;
+    cards.forEach(function(c){
+      var hit = !t || c.getAttribute('data-search').indexOf(t)>-1;
+      c.style.display = hit ? '' : 'none'; if(hit) n++;
+    });
+    shown.textContent=n; empty.style.display = n ? 'none' : 'block';
+  });
+})();
+</script>
+</body>
+</html>
