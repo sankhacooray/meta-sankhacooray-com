@@ -1,0 +1,16 @@
+# meta — network link-preview gallery on a Cloudflare Worker: static page + /api/og live share data.
+# Deploy: python3 build.py && CLOUDFLARE_ACCOUNT_ID=9a1da48a0f61e7cebcba39517856d87e npx wrangler deploy
+name = "meta-sankhacooray"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# Custom domain (replaced the old GitHub Pages CNAME on 24 Oct 2026).
+[[routes]]
+pattern = "meta.sankhacooray.com"
+custom_domain = true

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>meta — Sankha Cooray · the network, as it shares</title>
+<meta name="description" content="Every public sankhacooray.com site shown as its link preview, read live: share image, title and description, so a missing or weak card stands out.">
+<link rel="canonical" href="https://meta.sankhacooray.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="meta · Sankha Cooray">
+<meta property="og:title" content="meta — Sankha Cooray · the network, as it shares">
+<meta property="og:description" content="Every public sankhacooray.com site shown as its link preview, read live: share image, title and description, so a missing or weak card stands out.">
+<meta property="og:url" content="https://meta.sankhacooray.com/">
+<meta property="og:image" content="https://meta.sankhacooray.com/assets/og-image-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="meta: a grid of live link-preview cards for every sankhacooray.com site, grouped into hubs, products and health apps">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="meta — Sankha Cooray · the network, as it shares">
+<meta name="twitter:description" content="Every public sankhacooray.com site shown as its link preview, read live: share image, title and description, so a missing or weak card stands out.">
+<meta name="twitter:image" content="https://meta.sankhacooray.com/assets/og-image-v2.jpg">
+<meta name="twitter:image:alt" content="meta: a grid of live link-preview cards for every sankhacooray.com site, grouped into hubs, products and health apps">
+
+<link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#05060a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="meta">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  try { var t = localStorage.getItem("sc-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+<style>
+:root{
+  --bg:#0a0b10; --surface:#12141b; --card-hover:#191d28; --border:#242833; --chip:#1a1d26;
+  --text:#eef0f6; --text-dim:#a6adbd; --text-muted:#6b7182;
+  --accent:#8db4ff; --accent2:#c39bff; --on-accent:#0a0b10;
+  --warn:#ffb454; --warn-bg:rgba(255,180,84,.14);
+  --glow1:rgba(141,180,255,.10); --glow2:rgba(195,155,255,.08);
+  --bar:#05060a; --bar-text:#eef0f6; --bar-dim:#9aa1b3; --mark:#8db4ff; --accent-hi:#a6c4ff;
+  --warn-bar:#ffb454; --accent-hi-bar:#a9c7ff;
+  --gap:20px; --radius:16px; --maxw:1320px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f5f6fa; --surface:#ffffff; --card-hover:#eef2fc; --border:#dfe3ec; --chip:#eef0f5;
+    --text:#151824; --text-dim:#4a5163; --text-muted:#7b8294;
+    --accent:#3b6fe0; --accent2:#8a5ad6; --on-accent:#ffffff;
+    --warn:#b25e00; --warn-bg:rgba(219,128,0,.12);
+    --glow1:rgba(59,111,224,.08); --glow2:rgba(138,90,214,.06);
+    --bar:#141826; --bar-text:#eef0f6; --bar-dim:#a9b0c4; --mark:#8db4ff; --accent-hi:#5482ea;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f5f6fa; --surface:#ffffff; --card-hover:#eef2fc; --border:#dfe3ec; --chip:#eef0f5;
+  --text:#151824; --text-dim:#4a5163; --text-muted:#7b8294;
+  --accent:#3b6fe0; --accent2:#8a5ad6; --on-accent:#ffffff;
+  --warn:#b25e00; --warn-bg:rgba(219,128,0,.12);
+  --glow1:rgba(59,111,224,.08); --glow2:rgba(138,90,214,.06);
+  --bar:#141826; --bar-text:#eef0f6; --bar-dim:#a9b0c4; --mark:#8db4ff; --accent-hi:#5482ea;
+  color-scheme:light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+/* No overscroll bounce: the body is the scroller. */
+html{height:100%; overflow:hidden; background:var(--bg)}
+body{
+  height:100%; overflow-y:auto; overflow-x:hidden; overscroll-behavior:none;
+  font-family:'DM Sans',system-ui,sans-serif; background:var(--bg); color:var(--text);
+  -webkit-font-smoothing:antialiased; line-height:1.5;
+  background-image:
+    radial-gradient(1200px 620px at 12% -10%, var(--glow1), transparent 60%),
+    radial-gradient(1000px 680px at 108% 6%, var(--glow2), transparent 60%);
+  background-attachment:fixed;
+  display:flex; flex-direction:column;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
+
+/* App bar: same pattern as the hub sites. Dark, full width, hub chip + label + chevron +
+   in-page links at the left edge; theme toggle and the one CTA at the right edge. No bottom border. */
+.bar{position:sticky; top:0; z-index:20; flex:none; background:var(--bar); color:var(--bar-text); padding-top:env(safe-area-inset-top,0px)}
+.bar-in{display:flex; align-items:center; gap:18px; height:60px;
+  padding-left:max(24px,env(safe-area-inset-left,0px)); padding-right:max(24px,env(safe-area-inset-right,0px))}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--bar-text); flex:none}
+.hubchip{font-family:'Instrument Serif',serif; font-size:22px; line-height:1; padding:5px 14px 6px; border-radius:999px; background:var(--mark); color:#0a0b10; letter-spacing:.01em}
+.brand .lbl{font-size:14.5px; font-weight:500; color:var(--bar-text)}
+.chev{width:18px; height:18px; color:var(--bar-dim)}
+.nav{display:flex; gap:4px; margin-left:2px; min-width:0}
+.nav a{display:inline-flex; align-items:center; color:var(--bar-dim); text-decoration:none; font-size:14px; padding:6px 10px; border-radius:999px; white-space:nowrap;
+  transition:background-color .25s ease, color .25s ease}
+.nav a:hover{color:var(--bar-text); background:#ffffff14}
+.nav a[aria-current="true"]{color:var(--bar-text); background:#ffffff1f; font-weight:600}
+.nav a[hidden]{display:none}
+.spacer{flex:1}
+.gapbtn{all:unset; cursor:pointer; font-size:13.5px; font-weight:500; color:var(--bar-dim); padding:6px 12px; border-radius:999px;
+  box-shadow:inset 0 0 0 1px #ffffff26; white-space:nowrap; transition:background-color .25s ease, color .25s ease}
+.gapbtn:hover{color:var(--bar-text); background:#ffffff14}
+.gapbtn[aria-pressed="true"]{color:#0a0b10; background:var(--warn-bar); box-shadow:none}
+.iconbtn{all:unset; cursor:pointer; width:36px; height:36px; border-radius:999px; display:grid; place-items:center; color:var(--bar-dim)}
+.iconbtn:hover{color:var(--bar-text); background:#ffffff14}
+/* the toggle shows the theme it switches TO: moon on light, sun on dark */
+.ico-sun{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ico-sun{display:block} :root:not([data-theme="light"]) .ico-moon{display:none}}
+:root[data-theme="dark"] .ico-sun{display:block} :root[data-theme="dark"] .ico-moon{display:none}
+.iconbtn:focus-visible,.cta:focus-visible,.gapbtn:focus-visible{outline:2px solid var(--mark); outline-offset:2px}
+/* one primary CTA, theme colour, named for the task */
+.cta{display:inline-flex; align-items:center; justify-content:center; background:var(--mark); color:#0a0b10; text-decoration:none; font-weight:600; font-size:14px; line-height:20px;
+  padding:8px 18px; border-radius:999px; white-space:nowrap; transition:background .15s, box-shadow .15s}
+.cta:hover{background:var(--accent-hi-bar); box-shadow:0 0 0 4px #8db4ff2e, 0 6px 20px -6px var(--mark)}
+
+main{flex:1; width:100%; max-width:var(--maxw); margin:0 auto; padding:0 24px}
+section{padding:44px 0 20px; scroll-margin-top:72px}
+section[hidden]{display:none}
+.head{display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; margin-bottom:22px}
+.head h2{font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(32px,4.2vw,46px); line-height:1.05; letter-spacing:-.6px}
+.head p{color:var(--text-dim); font-size:16px}
+
+/* Cards: equal widths everywhere; rows balanced by JS (4+4+3+3, not 4+4+4+2). */
+.cards{display:flex; flex-wrap:wrap; justify-content:center; column-gap:var(--gap); row-gap:0; margin-bottom:calc(-1 * var(--gap))}
+.cards .br{flex-basis:100%; height:0}
+.card{
+  --c:var(--accent);
+  width:var(--cw, 300px); flex:none; margin-bottom:var(--gap); display:flex; flex-direction:column;
+  background:var(--surface); border-radius:var(--radius); overflow:hidden; text-decoration:none;
+  box-shadow:0 1px 0 color-mix(in srgb, var(--border) 70%, transparent), 0 10px 30px -24px rgba(0,0,0,.6);
+  transition:background-color .2s ease;
+}
+.card:hover{background:var(--card-hover)}
+.card[hidden]{display:none}
+.thumb{position:relative; aspect-ratio:1200/630; overflow:hidden;
+  background:linear-gradient(135deg, color-mix(in srgb, var(--c) 30%, var(--surface)), color-mix(in srgb, var(--c) 6%, var(--surface)))}
+.thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s ease}
+.thumb.has-img img{opacity:1}
+.thumb.has-img .ph{visibility:hidden}
+.ph{position:absolute; inset:0; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end; padding:16px 18px}
+.ph b{font-family:'Instrument Serif',serif; font-weight:400; font-size:44px; line-height:.95; letter-spacing:-.8px;
+  color:color-mix(in srgb, var(--c) 55%, var(--text))}
+.ph span{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.6px; color:var(--text-muted); margin-top:6px}
+.thumb.loading::before{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(100deg, transparent 30%, color-mix(in srgb, var(--text) 7%, transparent) 50%, transparent 70%);
+  background-size:220% 100%; animation:shine 1.4s linear infinite;
+}
+@keyframes shine{from{background-position:120% 0} to{background-position:-120% 0}}
+.flag{
+  position:absolute; z-index:2; top:12px; left:12px; display:inline-flex; align-items:center; gap:6px;
+  font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.3px;
+  color:var(--warn); background:color-mix(in srgb, var(--surface) 88%, transparent); padding:5px 10px; border-radius:999px;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--warn) 45%, transparent);
+}
+.flag[hidden]{display:none}
+.flag::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--warn)}
+.body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:6px; flex:1}
+.domain{display:flex; align-items:center; gap:7px; min-width:0; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-muted)}
+.domain .h{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--c); flex:none; box-shadow:0 0 0 1px color-mix(in srgb, var(--text) 25%, transparent)}
+.note{margin-left:auto; flex:none; color:var(--warn); background:var(--warn-bg); padding:1px 8px; border-radius:999px; font-size:11px}
+.note[hidden]{display:none}
+.title{font-weight:600; font-size:16px; line-height:1.3; color:var(--text); min-height:2.6em;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.desc{font-size:13.5px; color:var(--text-dim); line-height:1.5; min-height:4.5em;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
+.desc.none{color:var(--text-muted); font-style:italic}
+.card.loading .title, .card.loading .desc{color:transparent}
+.card.loading .title{background:linear-gradient(var(--chip),var(--chip)) 0 .2em/70% .9em no-repeat}
+.card.loading .desc{background:
+  linear-gradient(var(--chip),var(--chip)) 0 .3em/100% .8em no-repeat,
+  linear-gradient(var(--chip),var(--chip)) 0 1.8em/92% .8em no-repeat,
+  linear-gradient(var(--chip),var(--chip)) 0 3.3em/55% .8em no-repeat}
+.empty{display:none; text-align:center; color:var(--text-dim); padding:80px 0; font-size:17px}
+body.gaps-on.no-gaps .empty{display:block}
+
+footer{flex:none; display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap;
+  padding:40px 24px calc(28px + env(safe-area-inset-bottom)); font-size:13px; color:var(--text-muted); text-align:center}
+footer a{color:var(--text-dim); text-decoration:none}
+footer a:hover{color:var(--accent)}
+
+@media (max-width:1240px){ .nav,.brand .lbl,.chev{display:none} }
+@media (max-width:520px){ .cta .long{display:none} .gapbtn{padding:6px 10px} }
+@media (max-width:720px){
+  .bar-in{gap:10px; padding-left:16px; padding-right:16px}
+  main{padding:0 16px}
+  section{padding-top:30px}
+  .head{flex-direction:column; gap:4px}
+  .head p{font-size:15px}
+}
+@media (prefers-reduced-motion: reduce){ .thumb.loading::before{animation:none} *{transition:none !important} }
+</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/" aria-label="Meta, the sankhacooray network"><span class="hubchip">Meta</span><span class="lbl">Network</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l6 6-6 6M13 6l6 6-6 6"/></svg></a>
+  <nav class="nav" aria-label="Groups"><a href="#hubs">Research hubs</a><a href="#products">Products &amp; tools</a><a href="#health">Health suite</a><a href="#portfolio">Portfolio</a><a href="#experiments">Experiments</a></nav>
+  <div class="spacer"></div>
+  <button class="gapbtn" id="gaps" type="button" aria-pressed="false" title="Only show sites whose share card is missing something">Show gaps</button>
+  <button class="iconbtn" id="theme" type="button" aria-label="Switch theme" title="Switch theme"><svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
+  <a class="cta" href="https://sankhacooray.com/#contact"><span>Collaborate<span class="long"> with Sankha</span></span></a>
+</div></header>
+
+<main>
+  <section id="hubs">
+    <div class="head"><h2>Research hubs</h2><p>One hub per field, each gathering its projects, papers and talks.</p></div>
+    <div class="cards">
+      <a class="card loading" href="https://learn.sankhacooray.com/" target="_blank" rel="noopener" data-host="learn.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>learn</b><span>learn.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">learn.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">learn</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://lab.sankhacooray.com/" target="_blank" rel="noopener" data-host="lab.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>lab</b><span>lab.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">lab.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">lab</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://dev.sankhacooray.com/" target="_blank" rel="noopener" data-host="dev.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>dev</b><span>dev.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">dev.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">dev</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://play.sankhacooray.com/" target="_blank" rel="noopener" data-host="play.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>play</b><span>play.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">play.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">play</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://make.sankhacooray.com/" target="_blank" rel="noopener" data-host="make.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>make</b><span>make.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">make.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">make</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://music.sankhacooray.com/" target="_blank" rel="noopener" data-host="music.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>music</b><span>music.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">music.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">music</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://food.sankhacooray.com/" target="_blank" rel="noopener" data-host="food.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>food</b><span>food.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">food.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">food</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://cook.sankhacooray.com/" target="_blank" rel="noopener" data-host="cook.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>cook</b><span>cook.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">cook.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">cook</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://city.sankhacooray.com/" target="_blank" rel="noopener" data-host="city.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>city</b><span>city.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">city.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">city</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://access.sankhacooray.com/" target="_blank" rel="noopener" data-host="access.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>access</b><span>access.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">access.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">access</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://language.sankhacooray.com/" target="_blank" rel="noopener" data-host="language.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>language</b><span>language.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">language.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">language</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://palette.sankhacooray.com/" target="_blank" rel="noopener" data-host="palette.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>palette</b><span>palette.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">palette.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">palette</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://fold.sankhacooray.com/" target="_blank" rel="noopener" data-host="fold.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>fold</b><span>fold.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">fold.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">fold</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://biolens.sankhacooray.com/" target="_blank" rel="noopener" data-host="biolens.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>biolens</b><span>biolens.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">biolens.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">biolens</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://health.sankhacooray.com/" target="_blank" rel="noopener" data-host="health.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>health</b><span>health.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">health.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">health</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section id="products">
+    <div class="head"><h2>Products &amp; tools</h2><p>Apps, extensions and utilities people can use today.</p></div>
+    <div class="cards">
+      <a class="card loading" href="https://aimeter.sankhacooray.com/" target="_blank" rel="noopener" data-host="aimeter.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>aimeter</b><span>aimeter.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">aimeter.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">aimeter</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://shotlink.sankhacooray.com/" target="_blank" rel="noopener" data-host="shotlink.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>shotlink</b><span>shotlink.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">shotlink.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">shotlink</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://helix.sankhacooray.com/" target="_blank" rel="noopener" data-host="helix.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>helix</b><span>helix.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">helix.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">helix</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://kerf.sankhacooray.com/" target="_blank" rel="noopener" data-host="kerf.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>kerf</b><span>kerf.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">kerf.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">kerf</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://spotter.sankhacooray.com/" target="_blank" rel="noopener" data-host="spotter.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>spotter</b><span>spotter.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">spotter.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">spotter</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://docla.sankhacooray.com/" target="_blank" rel="noopener" data-host="docla.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>docla</b><span>docla.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">docla.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">docla</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://safebite.sankhacooray.com/" target="_blank" rel="noopener" data-host="safebite.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>safebite</b><span>safebite.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">safebite.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">safebite</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://lookout.sankhacooray.com/" target="_blank" rel="noopener" data-host="lookout.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>lookout</b><span>lookout.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">lookout.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">lookout</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://manuals.sankhacooray.com/" target="_blank" rel="noopener" data-host="manuals.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>manuals</b><span>manuals.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">manuals.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">manuals</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://geodex.sankhacooray.com/" target="_blank" rel="noopener" data-host="geodex.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>geodex</b><span>geodex.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">geodex.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">geodex</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://aruth.sankhacooray.com/" target="_blank" rel="noopener" data-host="aruth.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>aruth</b><span>aruth.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">aruth.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">aruth</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://scratchgpt.sankhacooray.com/" target="_blank" rel="noopener" data-host="scratchgpt.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>scratchgpt</b><span>scratchgpt.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">scratchgpt.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">scratchgpt</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://nusisb.sankhacooray.com/" target="_blank" rel="noopener" data-host="nusisb.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>nusisb</b><span>nusisb.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">nusisb.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">nusisb</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://meta.sankhacooray.com/" target="_blank" rel="noopener" data-host="meta.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>meta</b><span>meta.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">meta.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">meta</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section id="health">
+    <div class="head"><h2>Health suite</h2><p>Personal health apps that read, track and look ahead.</p></div>
+    <div class="cards">
+      <a class="card loading" href="https://vitals.sankhacooray.com/" target="_blank" rel="noopener" data-host="vitals.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>vitals</b><span>vitals.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">vitals.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">vitals</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://hemoto.sankhacooray.com/" target="_blank" rel="noopener" data-host="hemoto.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>hemoto</b><span>hemoto.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">hemoto.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">hemoto</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://trophe.sankhacooray.com/" target="_blank" rel="noopener" data-host="trophe.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>trophe</b><span>trophe.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">trophe.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">trophe</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://thymos.sankhacooray.com/" target="_blank" rel="noopener" data-host="thymos.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>thymos</b><span>thymos.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">thymos.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">thymos</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://prognos.sankhacooray.com/" target="_blank" rel="noopener" data-host="prognos.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>prognos</b><span>prognos.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">prognos.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">prognos</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://aegis.sankhacooray.com/" target="_blank" rel="noopener" data-host="aegis.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>aegis</b><span>aegis.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">aegis.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">aegis</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section id="portfolio">
+    <div class="head"><h2>Portfolio</h2><p>The home page (also www and v3) and every earlier version.</p></div>
+    <div class="cards">
+      <a class="card loading" href="https://sankhacooray.com/" target="_blank" rel="noopener" data-host="sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>sankhacooray</b><span>sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">sankhacooray</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://v2.sankhacooray.com/" target="_blank" rel="noopener" data-host="v2.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>v2</b><span>v2.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">v2.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">v2</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://v1.sankhacooray.com/" target="_blank" rel="noopener" data-host="v1.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>v1</b><span>v1.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">v1.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">v1</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://whoami.sankhacooray.com/" target="_blank" rel="noopener" data-host="whoami.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>whoami</b><span>whoami.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">whoami.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">whoami</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section id="experiments">
+    <div class="head"><h2>Experiments</h2><p>Small builds, demos and side pages.</p></div>
+    <div class="cards">
+      <a class="card loading" href="https://coffeelab.sankhacooray.com/" target="_blank" rel="noopener" data-host="coffeelab.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>coffeelab</b><span>coffeelab.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">coffeelab.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">coffeelab</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://mixlab.sankhacooray.com/" target="_blank" rel="noopener" data-host="mixlab.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>mixlab</b><span>mixlab.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">mixlab.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">mixlab</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://conduct.sankhacooray.com/" target="_blank" rel="noopener" data-host="conduct.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>conduct</b><span>conduct.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">conduct.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">conduct</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://pixels.sankhacooray.com/" target="_blank" rel="noopener" data-host="pixels.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>pixels</b><span>pixels.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">pixels.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">pixels</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://paynow.sankhacooray.com/" target="_blank" rel="noopener" data-host="paynow.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>paynow</b><span>paynow.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">paynow.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">paynow</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+      <a class="card loading" href="https://travel.sankhacooray.com/" target="_blank" rel="noopener" data-host="travel.sankhacooray.com">
+        <div class="thumb loading">
+          <div class="ph" aria-hidden="true"><b>travel</b><span>travel.sankhacooray.com</span></div>
+          <span class="flag" hidden></span>
+        </div>
+        <div class="body">
+          <span class="domain"><span class="dot"></span><span class="h">travel.sankhacooray.com</span><span class="note" hidden></span></span>
+          <h3 class="title">travel</h3>
+          <p class="desc"></p>
+        </div>
+      </a>
+    </div>
+  </section>
+  <p class="empty">Every share card is complete.</p>
+</main>
+
+<footer>
+  <span>meta · Sankha Cooray · share previews read live from each site</span>
+  <a href="https://sankhacooray.com/">sankhacooray.com</a>
+</footer>
+
+<script>
+(() => {
+  const body = document.body;
+  const cards = [...document.querySelectorAll(".card")];
+  const sections = [...document.querySelectorAll("main section")];
+
+  /* ---------- live share data ---------- */
+  const DESC_MIN = 120, DESC_MAX = 160;
+  function fill(card, d) {
+    const host = card.dataset.host;
+    const q = "?url=" + encodeURIComponent("https://" + host + "/");
+    const thumb = card.querySelector(".thumb");
+    const flag = card.querySelector(".flag");
+    const note = card.querySelector(".note");
+    const title = card.querySelector(".title");
+    const desc = card.querySelector(".desc");
+    card.classList.remove("loading");
+    const gaps = [];
+    if (!d) {
+      thumb.classList.remove("loading");
+      flag.textContent = "Unreachable"; flag.hidden = false;
+      desc.textContent = "The page didn't answer just now."; desc.classList.add("none");
+      card.classList.add("has-gap"); return;
+    }
+    if (d.theme && /^#[0-9a-f]{3,8}$|^rgb/i.test(d.theme)) card.style.setProperty("--c", d.theme);
+    title.textContent = d.title || host;
+    if (d.description) desc.textContent = d.description;
+    else { desc.textContent = "No description"; desc.classList.add("none"); gaps.push("desc"); }
+    const len = d.description ? [...d.description].length : 0;
+    if (d.description && (len < DESC_MIN || len > DESC_MAX)) {
+      note.textContent = len + " chars"; note.title = "Description is " + len + " characters (aim for 120–160)"; note.hidden = false; gaps.push("len");
+    }
+    if (!d.title) gaps.push("title");
+    if (d.image && d.imageOk) {
+      const img = new Image();
+      img.alt = "Share image of " + host; img.decoding = "async";
+      img.onload = () => { thumb.classList.remove("loading"); thumb.classList.add("has-img"); };
+      img.onerror = () => { thumb.classList.remove("loading"); img.remove(); flag.textContent = "Share image broken"; flag.hidden = false; card.classList.add("has-gap"); applyGaps(); };
+      img.src = "/api/og/image" + q;
+      thumb.appendChild(img);
+    } else {
+      thumb.classList.remove("loading");
+      flag.textContent = d.image ? "Share image broken" : "No share image";
+      flag.hidden = false; gaps.push("image");
+    }
+    if (gaps.length) card.classList.add("has-gap");
+  }
+  let pending = cards.length;
+  cards.forEach(card => {
+    fetch("/api/og?url=" + encodeURIComponent("https://" + card.dataset.host + "/"))
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null)
+      .then(d => { fill(card, d); if (--pending === 0) applyGaps(); });
+  });
+
+  /* ---------- balanced, equal-size rows ---------- */
+  const MIN_W = 262, MAX_COLS = 4;
+  function layout() {
+    const gap = parseFloat(getComputedStyle(body).getPropertyValue("--gap")) || 20;
+    sections.forEach(sec => {
+      const box = sec.querySelector(".cards");
+      box.querySelectorAll(".br").forEach(b => b.remove());
+      const W = box.clientWidth; if (!W) return;
+      const cols = Math.max(1, Math.min(MAX_COLS, Math.floor((W + gap) / (MIN_W + gap))));
+      box.style.setProperty("--cw", ((W - (cols - 1) * gap) / cols) + "px");
+      const shown = [...box.querySelectorAll(".card")].filter(c => !c.hidden);
+      const n = shown.length, rows = Math.ceil(n / cols);
+      if (rows < 2) return;
+      const base = Math.floor(n / rows), extra = n % rows;
+      let i = 0;
+      for (let r = 0; r < rows - 1; r++) {
+        i += base + (r < extra ? 1 : 0);
+        const br = document.createElement("span"); br.className = "br";
+        box.insertBefore(br, shown[i]);
+      }
+    });
+  }
+  new ResizeObserver(() => layout()).observe(document.querySelector("main"));
+
+  /* ---------- gaps filter (the app-bar CTA) ---------- */
+  const gapsBtn = document.getElementById("gaps");
+  function applyGaps() {
+    const on = gapsBtn.getAttribute("aria-pressed") === "true";
+    body.classList.toggle("gaps-on", on);
+    let any = false;
+    sections.forEach(sec => {
+      let shown = 0;
+      sec.querySelectorAll(".card").forEach(c => { c.hidden = on && !c.classList.contains("has-gap"); if (!c.hidden) shown++; });
+      sec.hidden = shown === 0; if (shown) any = true;
+    });
+    body.classList.toggle("no-gaps", !any);
+    document.querySelectorAll(".nav a").forEach(a => { a.hidden = document.getElementById(a.hash.slice(1)).hidden; });
+    layout(); spy();
+  }
+  gapsBtn.addEventListener("click", () => {
+    const on = gapsBtn.getAttribute("aria-pressed") !== "true";
+    gapsBtn.setAttribute("aria-pressed", String(on));
+    gapsBtn.textContent = on ? "Show all" : "Show gaps";
+    applyGaps(); body.scrollTo({ top: 0 });
+  });
+
+  /* ---------- theme toggle: shows the theme it switches to ---------- */
+  const root = document.documentElement, themeBtn = document.getElementById("theme");
+  const mq = matchMedia("(prefers-color-scheme: dark)");
+  const current = () => root.dataset.theme || (mq.matches ? "dark" : "light");
+  function labelTheme() {
+    const next = current() === "dark" ? "light" : "dark";
+    themeBtn.setAttribute("aria-label", "Switch to " + next + " theme"); themeBtn.title = "Switch to " + next + " theme";
+  }
+  themeBtn.addEventListener("click", () => {
+    const next = current() === "dark" ? "light" : "dark";
+    root.dataset.theme = next; try { localStorage.setItem("sc-theme", next); } catch (e) {}
+    labelTheme();
+  });
+  mq.addEventListener("change", labelTheme); labelTheme();
+
+  /* ---------- current tab follows the section on screen ---------- */
+  const tabs = [...document.querySelectorAll(".nav a")];
+  function spy() {
+    const barH = document.querySelector(".bar").offsetHeight;
+    const vis = sections.filter(s => !s.hidden);
+    let cur = vis[0];
+    const atEnd = body.scrollTop + body.clientHeight >= body.scrollHeight - 4;
+    if (atEnd) cur = vis[vis.length - 1];
+    else for (const s of vis) if (s.getBoundingClientRect().top - barH <= body.clientHeight * 0.35) cur = s;
+    tabs.forEach(a => a.setAttribute("aria-current", String(!!cur && a.hash === "#" + cur.id)));
+  }
+  body.addEventListener("scroll", spy, { passive: true });
+  tabs.forEach(a => a.addEventListener("click", e => {
+    const s = document.getElementById(a.hash.slice(1)); if (!s) return;
+    e.preventDefault(); history.replaceState(null, "", a.hash);
+    s.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }));
+  layout(); spy();
+  if (location.hash) { const s = document.getElementById(location.hash.slice(1)); if (s) s.scrollIntoView(); }
+})();
+</script>
+</body>
+</html>

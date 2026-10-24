@@ -1,0 +1,95 @@
+{
+  "groups": [
+    {
+      "id": "hubs",
+      "tab": "Research hubs",
+      "title": "Research hubs",
+      "note": "One hub per field, each gathering its projects, papers and talks.",
+      "hosts": [
+        "learn.sankhacooray.com",
+        "lab.sankhacooray.com",
+        "dev.sankhacooray.com",
+        "play.sankhacooray.com",
+        "make.sankhacooray.com",
+        "music.sankhacooray.com",
+        "food.sankhacooray.com",
+        "cook.sankhacooray.com",
+        "city.sankhacooray.com",
+        "access.sankhacooray.com",
+        "language.sankhacooray.com",
+        "palette.sankhacooray.com",
+        "fold.sankhacooray.com",
+        "biolens.sankhacooray.com",
+        "health.sankhacooray.com"
+      ]
+    },
+    {
+      "id": "products",
+      "tab": "Products & tools",
+      "title": "Products & tools",
+      "note": "Apps, extensions and utilities people can use today.",
+      "hosts": [
+        "aimeter.sankhacooray.com",
+        "shotlink.sankhacooray.com",
+        "helix.sankhacooray.com",
+        "kerf.sankhacooray.com",
+        "spotter.sankhacooray.com",
+        "docla.sankhacooray.com",
+        "safebite.sankhacooray.com",
+        "lookout.sankhacooray.com",
+        "manuals.sankhacooray.com",
+        "geodex.sankhacooray.com",
+        "aruth.sankhacooray.com",
+        "scratchgpt.sankhacooray.com",
+        "nusisb.sankhacooray.com",
+        "meta.sankhacooray.com"
+      ]
+    },
+    {
+      "id": "health",
+      "tab": "Health suite",
+      "title": "Health suite",
+      "note": "Personal health apps that read, track and look ahead.",
+      "hosts": [
+        "vitals.sankhacooray.com",
+        "hemoto.sankhacooray.com",
+        "trophe.sankhacooray.com",
+        "thymos.sankhacooray.com",
+        "prognos.sankhacooray.com",
+        "aegis.sankhacooray.com"
+      ]
+    },
+    {
+      "id": "portfolio",
+      "tab": "Portfolio",
+      "title": "Portfolio",
+      "note": "The home page (also www and v3) and every earlier version.",
+      "hosts": [
+        "sankhacooray.com",
+        "v2.sankhacooray.com",
+        "v1.sankhacooray.com",
+        "whoami.sankhacooray.com"
+      ]
+    },
+    {
+      "id": "experiments",
+      "tab": "Experiments",
+      "title": "Experiments",
+      "note": "Small builds, demos and side pages.",
+      "hosts": [
+        "coffeelab.sankhacooray.com",
+        "mixlab.sankhacooray.com",
+        "conduct.sankhacooray.com",
+        "pixels.sankhacooray.com",
+        "paynow.sankhacooray.com",
+        "travel.sankhacooray.com"
+      ]
+    }
+  ],
+  "aliases": {
+    "sankhacooray.com": [
+      "www",
+      "v3"
+    ]
+  }
+}

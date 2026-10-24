@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Share card source. Render: see README (headless Chrome, 1200x630, then sips to JPEG). -->
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px}
+  body{font-family:'DM Sans',sans-serif;background:#0a0b10;color:#eef0f6;position:relative;overflow:hidden;
+    background-image:radial-gradient(900px 480px at 10% -10%,rgba(141,180,255,.16),transparent 60%),radial-gradient(820px 560px at 106% 14%,rgba(195,155,255,.12),transparent 60%)}
+  .bar{position:absolute;left:0;right:0;top:0;height:64px;background:#05060a;display:flex;align-items:center;gap:12px;padding:0 40px}
+  .chip{font-family:'Instrument Serif',serif;font-size:24px;line-height:1;padding:6px 15px 7px;border-radius:999px;background:#8db4ff;color:#0a0b10}
+  .lbl{font-size:16px;font-weight:500}
+  .url{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:16px;color:#9aa1b3;letter-spacing:.5px}
+  .copy{position:absolute;left:56px;top:118px;width:470px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:17px;color:#8db4ff;text-transform:uppercase;letter-spacing:3.5px}
+  h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:84px;line-height:.98;letter-spacing:-1.8px;margin-top:22px}
+  h1 em{color:#8db4ff}
+  p{font-size:23px;color:#a6adbd;line-height:1.45;margin-top:26px}
+  .shot{position:absolute;left:560px;top:104px;width:720px;height:540px;border-radius:18px;overflow:hidden;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.9),0 0 0 1px rgba(141,180,255,.18)}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:left top;display:block}
+</style>
+</head>
+<body>
+  <div class="bar"><span class="chip">Meta</span><span class="lbl">Network</span><span class="url">meta.sankhacooray.com</span></div>
+  <div class="copy">
+    <div class="eyebrow">Sankha Cooray</div>
+    <h1>The network,<br>as it <em>shares</em>.</h1>
+    <p>Every sankhacooray.com site as its link preview, read live, with gaps flagged.</p>
+  </div>
+  <div class="shot"><img src="ui.png" alt=""></div>
+</body>
+</html>
