@@ -7,10 +7,10 @@
       "note": "One hub per field, each gathering its projects, papers and talks.",
       "hosts": [
         "learn.sankhacooray.com",
-        "lab.sankhacooray.com",
         "dev.sankhacooray.com",
         "play.sankhacooray.com",
         "make.sankhacooray.com",
+        "craft.sankhacooray.com",
         "music.sankhacooray.com",
         "food.sankhacooray.com",
         "cook.sankhacooray.com",
@@ -19,9 +19,7 @@
         "sense.sankhacooray.com",
         "access.sankhacooray.com",
         "language.sankhacooray.com",
-        "palette.sankhacooray.com",
-        "fold.sankhacooray.com",
-        "biolens.sankhacooray.com",
+        "biomed.sankhacooray.com",
         "health.sankhacooray.com"
       ]
     },

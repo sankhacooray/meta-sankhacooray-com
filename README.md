@@ -27,4 +27,5 @@ Local preview: `npx wrangler dev --port 4850` (ports 4850–4859).
 Left out on purpose: private or family pages (manel, sos, noel, bills, date, ech),
 infrastructure and test hosts (auth, cdn, test, chi-review-api, aiseecoder, _domainconnect),
 hosts that don't answer (design, sense), duplicates (www and v3 redirect to the apex) and
-kitchen (retired in favour of food).
+retired hubs: kitchen (→ food), fold (→ make, paper craft → craft), lab (→ dev),
+palette (→ design) and biolens (→ biomed).
