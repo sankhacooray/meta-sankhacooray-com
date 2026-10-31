@@ -1,0 +1,3 @@
+# Icons and the share image: not fingerprinted, so a sane 30-day TTL (never HTML).
+/assets/*
+  Cache-Control: public, max-age=2592000

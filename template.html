@@ -35,14 +35,15 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <script>
   try { var t = localStorage.getItem("sc-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
 </script>
 <style>
 :root{
   --bg:#0a0b10; --surface:#12141b; --card-hover:#191d28; --border:#242833; --chip:#1a1d26;
-  --text:#eef0f6; --text-dim:#a6adbd; --text-muted:#6b7182;
+  --text:#eef0f6; --text-dim:#a6adbd; --text-muted:#80869a;
   --accent:#8db4ff; --accent2:#c39bff; --on-accent:#0a0b10;
   --warn:#ffb454; --warn-bg:rgba(255,180,84,.14);
   --glow1:rgba(141,180,255,.10); --glow2:rgba(195,155,255,.08);
@@ -54,7 +55,7 @@
 @media (prefers-color-scheme: light){
   :root:not([data-theme="dark"]){
     --bg:#f5f6fa; --surface:#ffffff; --card-hover:#eef2fc; --border:#dfe3ec; --chip:#eef0f5;
-    --text:#151824; --text-dim:#4a5163; --text-muted:#7b8294;
+    --text:#151824; --text-dim:#4a5163; --text-muted:#666d7e;
     --accent:#3b6fe0; --accent2:#8a5ad6; --on-accent:#ffffff;
     --warn:#b25e00; --warn-bg:rgba(219,128,0,.12);
     --glow1:rgba(59,111,224,.08); --glow2:rgba(138,90,214,.06);
@@ -64,7 +65,7 @@
 }
 :root[data-theme="light"]{
   --bg:#f5f6fa; --surface:#ffffff; --card-hover:#eef2fc; --border:#dfe3ec; --chip:#eef0f5;
-  --text:#151824; --text-dim:#4a5163; --text-muted:#7b8294;
+  --text:#151824; --text-dim:#4a5163; --text-muted:#666d7e;
   --accent:#3b6fe0; --accent2:#8a5ad6; --on-accent:#ffffff;
   --warn:#b25e00; --warn-bg:rgba(219,128,0,.12);
   --glow1:rgba(59,111,224,.08); --glow2:rgba(138,90,214,.06);
@@ -200,7 +201,7 @@ footer a:hover{color:var(--accent)}
 </head>
 <body>
 <header class="bar"><div class="bar-in">
-  <a class="brand" href="/" aria-label="Meta, the sankhacooray network"><span class="hubchip">Meta</span><span class="lbl">Network</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l6 6-6 6M13 6l6 6-6 6"/></svg></a>
+  <a class="brand" href="/" aria-label="Meta Network, the sankhacooray network"><span class="hubchip">Meta</span> <span class="lbl">Network</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l6 6-6 6M13 6l6 6-6 6"/></svg></a>
   <nav class="nav" aria-label="Groups">{{TABS}}</nav>
   <div class="spacer"></div>
   <button class="gapbtn" id="gaps" type="button" aria-pressed="false" title="Only show sites whose share card is missing something">Show gaps</button>
@@ -254,6 +255,9 @@ footer a:hover{color:var(--accent)}
     if (d.image && d.imageOk) {
       const img = new Image();
       img.alt = "Share image of " + host; img.decoding = "async";
+      img.width = 1200; img.height = 630;
+      // the first row is above the fold; everything below waits until it's near the screen
+      if (card._i < 4) img.fetchPriority = "high"; else img.loading = "lazy";
       img.onload = () => { thumb.classList.remove("loading"); thumb.classList.add("has-img"); };
       img.onerror = () => { thumb.classList.remove("loading"); img.remove(); flag.textContent = "Share image broken"; flag.hidden = false; card.classList.add("has-gap"); applyGaps(); };
       img.src = "/api/og/image" + q;
@@ -266,6 +270,7 @@ footer a:hover{color:var(--accent)}
     if (gaps.length) card.classList.add("has-gap");
   }
   let pending = cards.length;
+  cards.forEach((card, i) => { card._i = i; });
   cards.forEach(card => {
     fetch("/api/og?url=" + encodeURIComponent("https://" + card.dataset.host + "/"))
       .then(r => r.ok ? r.json() : null)
